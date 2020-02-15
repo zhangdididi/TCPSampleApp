@@ -2,6 +2,7 @@ package tcp;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class TCPClient {
     //本机默认的域名 localhost
