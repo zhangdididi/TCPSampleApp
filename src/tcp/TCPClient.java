@@ -18,6 +18,14 @@ public class TCPClient {
         OutputStream os = socket.getOutputStream();
         //第二个参数为true表示自动刷新
         PrintWriter pw = new PrintWriter(os, true);
-        pw.println("hello world!!!");
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();//已经去除了换行符
+            //发送数据报到服务端
+            pw.println(line);//println发送的数据会加上换行符
+            //接收服务端的响应信息
+            String response = br.readLine();
+            System.out.println("接收到服务端响应：" + response);
+        }
     }
 }
